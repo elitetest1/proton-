@@ -26,7 +26,6 @@
  */
 
 ENTRY(flush_cache_all)
-flush_cache_all:
 	mov	x12, lr
 	dmb	sy			// ensure ordering with previous memory accesses
 	mrs	x0, clidr_el1		// read clidr

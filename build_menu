@@ -9,14 +9,14 @@ PARENT_DIR=`readlink -f ${DIR}/..`
 export PLATFORM_VERSION=11
 export ANDROID_MAJOR_VERSION=r
 export CROSS_COMPILE=$PARENT_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-export CLANG_TRIPLE=$PARENT_DIR/clang-r450784e/bin/aarch64-linux-gnu-
+export CLANG_TRIPLE=$PARENT_DIR/clang-r416183b/bin/aarch64-linux-gnu-
 export ARCH=arm64
 export SEC_BUILD_CONF_VENDOR_BUILD_OS=13
 export LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN=$PARENT_DIR/aarch64-linux-android-4.9/bin
-export CLANG_PREBUILT_BIN=$PARENT_DIR/clang-r450784e/bin
+export CLANG_PREBUILT_BIN=$PARENT_DIR/clang-r416183b/bin
 export PATH=$PATH:$LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN:$CLANG_PREBUILT_BIN
 export LLVM=1
-KERNEL_MAKE_ENV="LOCALVERSION=-FPKernelAlpha0.0.1"
+KERNEL_MAKE_ENV="LOCALVERSION=-FPKernel0.0.1"
 
 # Color
 ON_BLUE=`echo -e "\033[44m"`	# On Blue
@@ -37,8 +37,8 @@ toolchain(){
 }
 
 clang(){
-  if [ ! -d $PARENT_DIR/clang-r450784e ]; then
-    git clone https://gitlab.com/arrowos-project/android_prebuilts_clang_host_linux-x86_clang-r450784e $PARENT_DIR/clang-r450784e
+  if [ ! -d $PARENT_DIR/clang-r416183b ]; then
+    git clone https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b $PARENT_DIR/clang-r416183b
     . $DIR/build_menu
   fi
 }

@@ -1323,7 +1323,7 @@ void is_sec_check_module_state(struct is_rom_info *finfo)
 int is_i2c_read(struct i2c_client *client, void *buf, u32 addr, size_t size)
 {
 	const u32 addr_size = 2, max_retry = 2;
-	u8 addr_buf[addr_size];
+	//u8 addr_buf[addr_size];
 	int retries = max_retry;
 	int ret = 0;
 
@@ -1333,11 +1333,11 @@ int is_i2c_read(struct i2c_client *client, void *buf, u32 addr, size_t size)
 	}
 
 	/* Send addr */
-	addr_buf[0] = ((u16)addr) >> 8;
-	addr_buf[1] = (u8)addr;
+	//addr_buf[0] = ((u16)addr) >> 8;
+	//addr_buf[1] = (u8)addr;
 
 	for (retries = max_retry; retries > 0; retries--) {
-		ret = i2c_master_send(client, addr_buf, addr_size);
+		//ret = i2c_master_send(client, addr_size);
 		if (likely(addr_size == ret))
 			break;
 
@@ -1371,7 +1371,7 @@ int is_i2c_read(struct i2c_client *client, void *buf, u32 addr, size_t size)
 int is_i2c_write(struct i2c_client *client, u16 addr, u8 data)
 {
 	const u32 write_buf_size = 3, max_retry = 2;
-	u8 write_buf[write_buf_size];
+	//u8 write_buf[write_buf_size];
 	int retries = max_retry;
 	int ret = 0;
 
@@ -1381,13 +1381,13 @@ int is_i2c_write(struct i2c_client *client, u16 addr, u8 data)
 	}
 
 	/* Send addr+data */
-	write_buf[0] = ((u16)addr) >> 8;
-	write_buf[1] = (u8)addr;
-	write_buf[2] = data;
+	//write_buf[0] = ((u16)addr) >> 8;
+	//write_buf[1] = (u8)addr;
+	//write_buf[2] = data;
 
 
 	for (retries = max_retry; retries > 0; retries--) {
-		ret = i2c_master_send(client, write_buf, write_buf_size);
+		//ret = i2c_master_send(client, write_buf, write_buf_size);
 		if (likely(write_buf_size == ret))
 			break;
 

@@ -308,10 +308,10 @@ struct poc_partition {
 	u32 magicnum_size;
 
 	/* properties */
-	u32 need_preload:1;
+	int need_preload:1;
 
 	/* result */
-	u32 preload_done:1;
+	int preload_done:1;
 	int chksum_ok:1;
 	int write_check;
 	bool cache[MAX_PARTITION_REGION];

@@ -79,7 +79,7 @@ int usb_tpmon_check_tp(ktime_t current_time, int data_size)
 	return 0;
 }
 
-void usb_tpmon_init_data(void)
+void usb_tpmon_init_data()
 {
 	pr_info("Intialization USB TPMON data.\n");
 	tpmon.accumulated_time = 0;
@@ -115,7 +115,7 @@ static void usb_tpmon_work(struct work_struct *data)
 	dwc3_otg_pm_ctrl(g_dwc, 0);
 }
 
-void usb_tpmon_init(void)
+void usb_tpmon_init()
 {
 	pr_info("%s\n", __func__);
 
@@ -126,20 +126,20 @@ void usb_tpmon_init(void)
 	
 }
 
-void usb_tpmon_exit(void)
+void usb_tpmon_exit()
 {
 	pr_info("%s\n", __func__);
 	destroy_workqueue(tpmon.tpmon_wq);
 }
 
-void usb_tpmon_open(void)
+void usb_tpmon_open()
 {
 	pr_info("%s\n", __func__);
 	usb_tpmon_init_data();
 }
 
 /* Call this function at removing USB */
-void usb_tpmon_close(void)
+void usb_tpmon_close()
 {
 	pr_info("%s\n", __func__);
 	pr_info("USB TPMON - Unlock all.\n");

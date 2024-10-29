@@ -75,7 +75,7 @@ anykernel3(){
     cd $PARENT_DIR/AnyKernel3
     git reset --hard
     cp $DIR/arch/arm64/boot/Image zImage
-    sed -i "s/ExampleKernel by osm0sis/r9s FPkernel by fpsensor/g" anykernel.sh
+    sed -i "s/ExampleKernel by osm0sis/r9s Proton+ Kernel/g" anykernel.sh
     sed -i "s/=maguro/=r9s/g" anykernel.sh
     sed -i "s/=toroplus/=/g" anykernel.sh
     sed -i "s/=toro/=/g" anykernel.sh
